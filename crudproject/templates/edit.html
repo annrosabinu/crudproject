@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Employee Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f5f0;
+            margin: 0;
+            padding: 20px;
+        }
+        form {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 5px;
+            display: block;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <form method="post" action="{% url 'edit_employee_details' employee.id %}">
+        {% csrf_token %}
+        <label>Employee Name</label>
+        <input type="text" name="emp_name" value="{{employee.employ_name}}">
+        <label>Department</label>
+        <input type="text" name="dept_name" value="{{employee.department}}">
+        <label>Age</label>
+        <input type="text" name="age" value="{{employee.age}}">
+        <label>Email</label>
+        <input type="text" name="email" value="{{employee.email}}">
+        <label>Contact Number</label>
+        <input type="text" name="contact_num" value="{{employee.contact_number}}">
+        <button type="submit">Update</button>
+    </form>
+</body>
+</html>
